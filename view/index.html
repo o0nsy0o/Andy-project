@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>自适应框架</title>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/backgroundPlace.js"></script>
+	<script src="../js/angular.min.js"></script>
+	<script src="../js/writemode.js"></script>
+	<script src="../js/index.js"></script>
+	<script src="../js/digit.js"></script>
+	<script src="../js/nowtime.js"></script>
+	<script src="../js/calendar.js"></script>
+	<script src="../js/coll.js"></script>
+	<link rel="stylesheet" href="../css/calendar.css">
+	<link rel="stylesheet" href="../css/animate.min.css">
+	<link rel="stylesheet" href="../css/index.css">
+	<script>
+	$(function(){
+		$("#slider-nav-click").on('click',function(){
+			$("#slider-nav-body").css("display","block");
+			if($("#slider-nav-body").hasClass('bounceOutRight')){
+				$("#slider-nav-body").removeClass('bounceOutRight');
+				$("#slider-nav-body").addClass('bounceInRight');
+			}else{
+				$("#slider-nav-body").removeClass('bounceInRight');
+				$("#slider-nav-body").addClass('bounceOutRight');
+			}	
+		});
+
+	})
+	// 滚动事件监听
+	$(function(){
+		$(window).scroll(function(){
+			if($(window).scrollTop()<10){
+				$("#returntop").fadeOut();
+			}else{
+				$("#returntop").fadeIn();
+			}
+    	});
+    	$("#returntop").on('click',function(){
+    		$('html,body').animate({scrollTop: '0px'}, 1000);
+    	})
+	});
+	</script>
+</head>
+<body ng-app="app1">
+	<div id="backgroundPlace" style="width: 100%;height: 100%;position: absolute;">
+		<ul style="width: 100%;height: 100%;">
+			<li name="sb" class="onactive" style="display: list-item;"><img src="../img/bg/1.jpg"></li>
+			<li name="sb" ><img src="../img/bg/2.jpg"></li>
+			<li name="sb"><img src="../img/bg/3.jpg"></li>
+			<li name="sb"><img src="../img/bg/4.jpg"></li>
+			<li name="sb"><img src="../img/bg/5.jpg"></li>
+		</ul>
+	</div>
+	<div id="content">
+		<header>
+			<div class="left-header">
+				<h1>
+					<a href="">Andy的风雨前端路</a>
+				</h1>
+				<button id="slider-nav-click" class="down-select">点击</button>
+			</div>
+			<div class="right-header">
+				<ul>
+					<li><a href="">首页</a></li>
+					<li><a href="">博文</a></li>
+					<li><a href="">作品集</a></li>
+					<li><a href="">音乐欣赏</a></li>
+					<li><a href="">QQ登录</a></li>
+				</ul>
+			</div>
+		</header>
+
+		<div id="container">
+		<div id="slider-nav-body" class="slider-nav animated bounceOutRight">
+				<ul>
+					<li><a href="">首页</a></li>
+					<li><a href="">博文</a></li>
+					<li><a href="">作品集</a></li>
+					<li><a href="">音乐欣赏</a></li>
+					<li><a href="">QQ登录</a></li>
+				</ul>
+		</div>
+			<div id="left-container"><div id="introduce">
+				<div class="portrait">
+				<img src="../img/tx.png" alt="Andy">
+				</div>
+				<div class="content">
+					<p><strong>姓名</strong>&nbsp;|&nbsp;<span>Andy</span></p>
+					<p><strong>兴趣</strong>&nbsp;|&nbsp;<span>技术、管理、英文、吃喝玩乐乱侃空</span></p>
+					<p><strong>邮箱</strong>&nbsp;|&nbsp;<span></span>253431591@qq.com</p>
+					<p><strong>主页</strong>&nbsp;|&nbsp;<span>www.nsyblog.com</span></p>
+				</div>
+			</div><p id="show" style=""></p></div><div  id="center-container"><div id="timerun"  ng-controller="cont1" style="overflow: hidden;">
+				<div class="time" ng-repeat="data in arr">
+					<div class="timeline">
+						<div class="timeline-img">
+							<p>{{data.sort}}</p>
+						</div>
+						<div class="timelineContent">
+							<h2>
+								<a href="">{{data.title}}</a>
+							</h2>
+							<p>{{data.content}}</p>
+							<a href="###" class="readMore" target="_blank">阅读全文</a>
+							<span class="theDate">{{data.time|date:'yyyy-MM-dd'}}</span>
+						</div>
+					</div>
+				</div>
+			</div></div><div id="right-container"><div class="canvasa"><canvas id="canvas"></canvas></div><div id="clock"></div><div id="push-list" ng-controller="cont1">
+				<ul id="coll">
+					<li class="coll" ng-repeat="date in arr2">
+					<div class="collbtn" >{{date.title}}</div>
+					<hr>
+					<div class="collcontent"><ul>
+						<li><a href="">{{date.list1}}</a></li>
+						<li><a href="">{{date.list2}}</a></li>
+						<li><a href="">{{date.list3}}</a></li>
+						<li><a href="">{{date.list4}}</a></li>
+					</ul></div>
+					</li>
+				</ul>
+			</div>
+			<div id="returntop"><img src="../img/return.png" alt="返回顶部"></div>
+			</div>
+		</div>
+		<footer><p>本博客由Andy独立制作，未进允许，随意转载。</p></footer>
+		<audio src="../beijing.mp3" autoplay="autoplay">
+		您的浏览器不支持 audio 标签。
+		</audio>
+	</div>
+	<script>
+		writingMode("君の名前覚えていれば、世界のどこにいっても。必ず会いに行く。","show");
+	</script>
+		<script>
+		$(document).ready(function(){
+		$('#clock').calendar({
+        width: 250,
+        height: 220,
+    });
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+/*reset样式 ***********************************************/
+*{
+	margin: 0;
+	padding: 0;
+}
+html,li{
+	font-size: 14px;
+	font-family: '微软雅黑';
+	list-style: none;
+}
+/*reset样式 ***********************************************/
+/*响应式样式***********************************************/
+html,body{
+	width:100%;
+	height:100%;
+}
+header{
+	z-index: 999;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 4rem;
+	
+}
+#content{
+	width: 90%;
+	height: 100%;
+	background:green;
+	margin: 4rem auto;
+	margin-bottom: 0;
+}
+
+/*响应式样式***********************************************/
+/*头部响应式样式*******************************************/
+header .left-header{
+
+	overflow: hidden;
+	width:100%;
+	height: 100%;
+	display: inline-block;
+}
+header h1{
+	width: 80%;
+	height: 100%;
+	position: relative;
+	display: inline-block;
+	float: left;
+
+}
+header h1 a{
+	display: inline-block;
+	position: absolute;
+	font-size: 2rem;
+	top:50%;
+	margin-top: -1rem;
+	text-decoration: none;
+	line-height: 2rem;
+	color: #fff;
+}
+header h1 a:hover{
+	color: #eee;
+}
+header .right-header{
+	overflow: hidden;
+	display: none;
+	float: right;
+	width:50%;
+	height: 100%;
+}
+header .right-header:after{
+		content: "." ; 
+		display: block ;
+		height: 0 ;
+		clear: both ;
+		visibility: hidden ;
+	}
+header .right-header ul{
+	height: 100%;
+	overflow: hidden;
+}
+header .right-header li{
+	float: right;
+	margin-right: 3rem;
+	height: 100%;
+}
+header .right-header a{
+	color: #fff;
+	font-size: 16px;
+	text-decoration: none;
+	line-height:330%;
+}
+header .left-header .down-select{
+	height: 100%;
+	width: 20%;
+	background: red;
+	color: #fff;
+	border:none;
+}
+#slider-nav-body{
+	display: none;
+	width: 25%;
+	height: 94%;
+	position: fixed;
+	left: 80%;
+	bottom: 0;
+	background: blue;
+}
+#slider-nav-body ul{
+	float: left;
+	width: 80%;
+}
+#slider-nav-body li{
+	width: 100%;
+	height: 5rem;
+	margin-top: 2rem;
+	list-style: none;
+	text-align: center;
+}
+#slider-nav-body li a{
+	text-decoration: none;
+	font-size:2rem;
+}
+@media only screen and (min-width:750px){
+header .left-header{
+	width:50%;
+	height: 100%;
+	display: inline-block;
+}
+header h1{
+	width: 100%;
+	margin-left:3rem; 
+}
+header .left-header .down-select{
+	display: none;
+}
+header .right-header{
+	display: inline-block;
+	float: right;
+	width:50%;
+	height: 100%;
+}
+#slider-nav-body{
+	display: none !important;
+}
+}
+/*头部响应式样式*********************************************/
+/*切换主题按钮样式*******************************************/
+.switch{
+	position:fixed;
+	width: 100px;
+	height:100px;
+	cursor: pointer;
+	top: 100px;
+	right: 3rem;
+	animation:mymove 2s 1 ;
+	-webkit-animation:mymove 2s 1 ;
+}
+.switch:before{
+	content: '';
+	    position: absolute;
+	    top: -100px;
+	    left: 50%;
+	    height: 100%;
+	    width: 3px;
+	    background: #eee;
+
+}
+@keyframes mymove
+{
+0%{top: 0px;}
+20%{top: 100px;}
+40% {top: 60px;}
+60% {top: 100px;}
+80% {top: 80px;}
+100%{top: 100px;}
+}
+
+@-webkit-keyframes mymove
+{
+0%{top: 0px;}
+20%{top: 100px;}
+40% {top: 60px;}
+60% {top: 100px;}
+80% {top: 80px;}
+100%{top: 100px;}
+}
+.switch img{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	transition: all 2s;
+}
+/*切换主题按钮样式******************************************/
